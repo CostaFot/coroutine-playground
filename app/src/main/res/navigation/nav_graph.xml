@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/hostFragment">
+    app:startDestination="@id/postFragment">
 
     <fragment
-        android:id="@+id/hostFragment"
-        android:name="com.feelsokman.coroutineplayground.ui.fragments.host.HostFragment"
-        android:label="HostFragment">
+        android:id="@+id/postFragment"
+        android:name="com.feelsokman.coroutineplayground.ui.fragments.post.PostFragment"
+        android:label="PostFragment"
+        tools:layout="@layout/fragment_post">
         <action
-            android:id="@+id/action_hostFragment_to_anotherFragment"
+            android:id="@+id/action_postFragment_to_anotherFragment"
             app:destination="@id/anotherFragment"
             app:enterAnim="@anim/enter_from_left"
             app:exitAnim="@anim/exit_to_right"
@@ -20,7 +22,8 @@
     <fragment
         android:id="@+id/anotherFragment"
         android:name="com.feelsokman.coroutineplayground.ui.fragments.another.AnotherFragment"
-        android:label="AnotherFragment">
+        android:label="AnotherFragment"
+        tools:layout="@layout/fragment_another">
     </fragment>
     <action
         android:id="@+id/action_global_anotherFragment"

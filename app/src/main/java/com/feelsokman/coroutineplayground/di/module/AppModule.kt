@@ -6,6 +6,7 @@ import android.content.res.Resources
 import com.feelsokman.coroutineplayground.BuildConfig
 import com.feelsokman.coroutineplayground.coroutine.DefaultDispatcherProvider
 import com.feelsokman.coroutineplayground.coroutine.DispatcherProvider
+import com.feelsokman.coroutineplayground.repos.RedditRepository
 import com.google.firebase.analytics.FirebaseAnalytics
 import com.squareup.otto.Bus
 import dagger.Module
@@ -45,5 +46,10 @@ class AppModule {
     @Provides
     internal fun providesDispatcherProvider(): DispatcherProvider {
         return DefaultDispatcherProvider()
+    }
+
+    @Provides
+    fun providesRedditRepository(dispatcherProvider: DispatcherProvider): RedditRepository {
+        return RedditRepository(dispatcherProvider)
     }
 }

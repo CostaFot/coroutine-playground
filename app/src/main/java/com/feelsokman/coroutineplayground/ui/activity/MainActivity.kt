@@ -41,7 +41,7 @@ class MainActivity : BaseActivity() {
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
             when (destination.id) {
-                R.id.hostFragment -> Timber.tag("NavigationLogger").d("hostFragment showing!")
+                R.id.postFragment -> Timber.tag("NavigationLogger").d("postFragment showing!")
                 R.id.anotherFragment -> Timber.tag("NavigationLogger").d("anotherFragment showing!")
             }
         }
