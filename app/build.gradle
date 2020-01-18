@@ -2,24 +2,9 @@ apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
-/*apply plugin: 'io.fabric'
-apply plugin: 'com.google.firebase.firebase-perf'*/
 
 apply from: '../buildsystem/quality/quality.gradle'
 apply from: '../buildsystem/quality/ktlint.gradle'
-
-/*
-
-// Create a variable called keystorePropertiesFile, and initialize it to your
-// keystore.properties file, in the rootProject folder.
-def keystorePropertiesFile = rootProject.file("keystore.properties")
-
-// Initialize a new Properties() object called keystoreProperties.
-def keystoreProperties = new Properties()
-
-// Load your keystore.properties file into the keystoreProperties object.
-keystoreProperties.load(new FileInputStream(keystorePropertiesFile))
-*/
 
 
 android {
@@ -27,22 +12,17 @@ android {
     testOptions.unitTests.includeAndroidResources = true
 
     defaultConfig {
-        applicationId "com.feelsokman.androidtemplate"
+        applicationId "com.feelsokman.coroutineplayground"
         minSdkVersion rootProject.ext.androidVersions.minSdkVersion
         targetSdkVersion rootProject.ext.androidVersions.targetSdkVersion
         versionCode 1
         versionName "1.0"
         vectorDrawables.useSupportLibrary = true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-
-        buildConfigField "String", "serverUrl", '"https://jsonplaceholder.typicode.com/"'
     }
     signingConfigs {
         release {
-            /*keyAlias keystoreProperties['releaseKeyAlias']
-            keyPassword keystoreProperties['releaseKeyPassword']
-            storeFile rootProject.file("keystore.jks")
-            storePassword keystoreProperties['releaseStorePassword']*/
+
         }
 
     }
@@ -51,7 +31,6 @@ android {
         release {
             minifyEnabled true
             shrinkResources false
-            //signingConfig signingConfigs.release
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             applicationIdSuffix ".release"
             versionNameSuffix "-release"
@@ -72,7 +51,7 @@ android {
             dimension "style"
             applicationIdSuffix ".templateStyle"
             versionNameSuffix "-templateStyle"
-            resValue "string", "app_name", "Android Template"
+            resValue "string", "app_name", "Coroutine Playground"
             versionCode 1
             versionName "0.1"
         }
@@ -150,29 +129,6 @@ dependencies {
     implementation rootProject.ext.dependencies.navigationFragments
     implementation rootProject.ext.dependencies.navigationUI
 
-    // Rx
-    implementation rootProject.ext.dependencies.rxJava2
-    implementation rootProject.ext.dependencies.rxAndroid
-    //noinspection GradleDependency
-    implementation rootProject.ext.dependencies.rxPermissions
-    implementation rootProject.ext.dependencies.rxBindingMaterial
-
-    implementation rootProject.ext.dependencies.gson
-    implementation rootProject.ext.dependencies.okHttp3
-    implementation rootProject.ext.dependencies.loggingInterceptor
-    implementation(rootProject.ext.dependencies.retrofit2) {
-        exclude group: 'com.squareup.okhttp3', module: 'okhttp'
-    }
-    implementation(rootProject.ext.dependencies.retrofit2GsonConverter) {
-        exclude group: 'com.google.code.gson', module: 'gson'
-    }
-    implementation(rootProject.ext.dependencies.retrofit2RxJava2) {
-        exclude group: 'io.reactivex.rxjava2', module: 'rxjava'
-    }
-
-    // Network watcher
-    implementation rootProject.ext.dependencies.reactiveNetwork
-
     // Dependency Injection
     implementation rootProject.ext.dependencies.dagger
     kapt rootProject.ext.dependencies.daggerCompiler
@@ -180,14 +136,10 @@ dependencies {
     implementation rootProject.ext.dependencies.daggerAndroidSupport
     kapt rootProject.ext.dependencies.daggerProcessor
 
-    // Shared pref
-    implementation rootProject.ext.dependencies.kotlinpref
-
     // Logging
     implementation rootProject.ext.dependencies.timberLogger
 
     // UI stuff
-    //noinspection GradleDependency
     implementation rootProject.ext.dependencies.toast
     implementation rootProject.ext.dependencies.lovelydialog
     implementation rootProject.ext.dependencies.flashbar
@@ -208,7 +160,7 @@ dependencies {
     // Leak detection
     debugImplementation rootProject.ext.dependencies.leakCanary
 
-    // Firebase core
+    // Firebase
     implementation rootProject.ext.dependencies.firebaseAnalytics
     // Crashlytics
     implementation rootProject.ext.dependencies.crashlytics
@@ -240,4 +192,3 @@ dependencies {
     debugImplementation rootProject.ext.testDependencies.fragmentScenario
 
 }
-//apply plugin: 'com.google.gms.google-services'
