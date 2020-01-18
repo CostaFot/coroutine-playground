@@ -9,7 +9,6 @@ import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import com.feelsokman.androidtemplate.R
-import com.feelsokman.androidtemplate.preferences.AppPreferences
 import com.feelsokman.androidtemplate.ui.activity.viewmodel.MainViewModel
 import com.feelsokman.androidtemplate.ui.base.BaseFragment
 import com.feelsokman.androidtemplate.ui.fragments.another.viewmodel.AnotherViewModel
@@ -23,8 +22,6 @@ class AnotherFragment : BaseFragment() {
         return inflater.inflate(R.layout.fragment_another, container, false)
     }
 
-    @Inject
-    internal lateinit var appPreferences: AppPreferences
     @Inject
     internal lateinit var factory: AnotherViewModelFactory
 

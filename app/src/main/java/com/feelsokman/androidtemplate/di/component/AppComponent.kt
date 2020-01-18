@@ -4,8 +4,6 @@ import android.app.Application
 import com.feelsokman.androidtemplate.TemplateApplication
 import com.feelsokman.androidtemplate.di.module.ActivityBuilderModule
 import com.feelsokman.androidtemplate.di.module.AppModule
-import com.feelsokman.androidtemplate.di.module.NetworkModule
-import com.feelsokman.androidtemplate.di.module.UseCaseModule
 import dagger.BindsInstance
 import dagger.Component
 import dagger.android.AndroidInjector
@@ -17,9 +15,7 @@ import javax.inject.Singleton
     modules = [
         AndroidSupportInjectionModule::class,
         ActivityBuilderModule::class,
-        AppModule::class,
-        NetworkModule::class,
-        UseCaseModule::class
+        AppModule::class
     ]
 )
 interface AppComponent : AndroidInjector<TemplateApplication> {

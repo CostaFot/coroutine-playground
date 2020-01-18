@@ -2,10 +2,9 @@ package com.feelsokman.androidtemplate.ui.fragments.another.viewmodel
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.feelsokman.androidtemplate.usecase.GetStringFromStorageUseCase
 import timber.log.Timber
 
-class AnotherViewModel(private val getStringFromStorageUseCase: GetStringFromStorageUseCase) : ViewModel() {
+class AnotherViewModel : ViewModel() {
 
     val textData = MutableLiveData<String>()
 
