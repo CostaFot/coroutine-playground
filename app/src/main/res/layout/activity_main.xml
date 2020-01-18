@@ -27,14 +27,6 @@
                 android:layout_height="?attr/actionBarSize"
                 android:theme="@style/Widget.App.DefaultToolbar">
 
-                <ImageView
-                    android:id="@+id/toolbar_logo"
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:layout_gravity="center"
-                    android:src="@drawable/ic_info"
-                    android:tint="?attr/colorControlHighlight"
-                    tools:ignore="ContentDescription" />
 
             </androidx.appcompat.widget.Toolbar>
 

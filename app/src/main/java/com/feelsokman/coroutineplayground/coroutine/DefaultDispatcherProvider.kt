@@ -9,3 +9,10 @@ class DefaultDispatcherProvider(
     override val io: CoroutineDispatcher = Dispatchers.IO,
     override val unconfined: CoroutineDispatcher = Dispatchers.Unconfined
 ) : DispatcherProvider
+
+interface DispatcherProvider {
+    val io: CoroutineDispatcher
+    val ui: CoroutineDispatcher
+    val default: CoroutineDispatcher
+    val unconfined: CoroutineDispatcher
+}
