@@ -16,10 +16,7 @@ import kotlinx.android.synthetic.main.fragment_host.*
 import timber.log.Timber
 import javax.inject.Inject
 
-class HostFragment : BaseFragment(), ViewBinder.Callback {
-    override fun onButtonClicked() {
-        //
-    }
+class HostFragment : BaseFragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         return inflater.inflate(R.layout.fragment_host, container, false)
@@ -31,8 +28,6 @@ class HostFragment : BaseFragment(), ViewBinder.Callback {
     private val viewModelHost by viewModels<HostViewModel>({ this }, { factory })
     // Get a reference to the ViewModel scoped to its Activity
     private val activityViewModel by activityViewModels<MainViewModel>()
-
-    private lateinit var viewBinder: ViewBinder
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -50,13 +45,5 @@ class HostFragment : BaseFragment(), ViewBinder.Callback {
         button.setOnClickListener {
             viewModelHost.getTodos()
         }
-    }
-
-    override fun onSaveInstanceState(outState: Bundle) {
-        super.onSaveInstanceState(outState)
-    }
-
-    override fun onPause() {
-        super.onPause()
     }
 }
