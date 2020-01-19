@@ -166,21 +166,11 @@ dependencies {
     implementation rootProject.ext.dependencies.crashlytics
 
     // testing (avoid androidTestImplementation if you can!)
-    testImplementation rootProject.ext.testDependencies.jUnit
-    testImplementation rootProject.ext.testDependencies.jUnitKotlin
-    implementation rootProject.ext.testDependencies.testCoreX
-    testImplementation rootProject.ext.testDependencies.testArchCompX
-    testImplementation rootProject.ext.testDependencies.robolectric
-    testImplementation rootProject.ext.testDependencies.mockitoCore
-    testImplementation rootProject.ext.testDependencies.mockitoKotlin
-    testImplementation rootProject.ext.testDependencies.mockitoInline
-    testImplementation rootProject.ext.testDependencies.runner
-    testImplementation rootProject.ext.testDependencies.espresso
-    testImplementation rootProject.ext.testDependencies.espressoIntents
-    testImplementation rootProject.ext.testDependencies.rules
-    testImplementation rootProject.ext.testDependencies.truth
-    testImplementation rootProject.ext.testDependencies.kluent
-    testImplementation rootProject.ext.testDependencies.coroutineTest
+    testImplementation 'androidx.test.ext:junit:1.1.2-alpha03'
+    testImplementation 'org.mockito:mockito-core:3.0.0'
+    testImplementation 'com.nhaarman.mockitokotlin2:mockito-kotlin:2.1.0'
+    testImplementation 'org.amshove.kluent:kluent:1.51'
+    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.3.2'
 
     androidTestImplementation rootProject.ext.testDependencies.jUnit
     androidTestImplementation rootProject.ext.testDependencies.jUnitKotlin
