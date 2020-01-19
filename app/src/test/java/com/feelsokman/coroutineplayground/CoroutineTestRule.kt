@@ -13,7 +13,7 @@ import org.junit.rules.TestWatcher
 import org.junit.runner.Description
 
 @ExperimentalCoroutinesApi
-class CoroutinesTestRule(
+class CoroutineTestRule(
     val testDispatcher: TestCoroutineDispatcher = TestCoroutineDispatcher()
 ) : TestWatcher() {
 
@@ -37,6 +37,6 @@ class CoroutinesTestRule(
 }
 
 @ExperimentalCoroutinesApi
-fun CoroutinesTestRule.runBlockingTest(block: suspend TestCoroutineScope.() -> Unit) {
+fun CoroutineTestRule.runBlockingTest(block: suspend TestCoroutineScope.() -> Unit) {
     testDispatcher.runBlockingTest(block)
 }

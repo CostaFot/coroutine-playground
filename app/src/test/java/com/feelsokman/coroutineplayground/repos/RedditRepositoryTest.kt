@@ -1,6 +1,6 @@
 package com.feelsokman.coroutineplayground.repos
 
-import com.feelsokman.coroutineplayground.CoroutinesTestRule
+import com.feelsokman.coroutineplayground.CoroutineTestRule
 import com.feelsokman.coroutineplayground.ui.fragments.post.viewmodel.State
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.test.runBlockingTest
@@ -13,18 +13,19 @@ import org.junit.Test
 class RedditRepositoryTest {
 
     @get:Rule
-    val coroutinesTestRule = CoroutinesTestRule()
+    val coroutineTestRule = CoroutineTestRule()
 
     private lateinit var redditRepository: RedditRepository
 
     @Before
     fun setUp() {
-        redditRepository = RedditRepository(coroutinesTestRule.testDispatcherProvider)
+        redditRepository = RedditRepository(coroutineTestRule.testDispatcherProvider)
     }
 
     @Test
     fun `getPost actually returns the post I am expecting`() {
-        coroutinesTestRule.testDispatcher.runBlockingTest {
+        // run the test on the testDispatcher provided by the coroutinesTestRule declared at the top
+        coroutineTestRule.testDispatcher.runBlockingTest {
             // Given
             val expectedPost: State.Post = State.Post("I hope this post gets me karma points")
             // When
