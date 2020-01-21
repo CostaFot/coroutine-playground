@@ -51,7 +51,7 @@ class PostViewModelTest {
     }
 
     @Test
-    fun `geRedditPost shows loading first then the post after it was successfully fetched`() {
+    fun `geRedditPost shows loading first then shows the post after it was successfully fetched`() {
         coroutineTestRule.testDispatcher.runBlockingTest {
             // Given
             lifeCycleTestOwner.onResume()
@@ -67,7 +67,7 @@ class PostViewModelTest {
     }
 
     @Test
-    fun `geRedditPost gfrgdeg`() {
+    fun `a useless test for getRedditPost`() {
         coroutineTestRule.testDispatcher.runBlockingTest {
             // Given
             lifeCycleTestOwner.onResume()
@@ -76,9 +76,8 @@ class PostViewModelTest {
             // When
             postViewModel.getRedditPost()
             // Then
+            Verify on redditRepository that redditRepository.getPost() was called
             Verify on stateObserver that stateObserver.onChanged(State.Loading) was called
-            Verify on stateObserver that stateObserver.onChanged(redditPost) was called
-            VerifyNoFurtherInteractions on stateObserver
         }
     }
 }
